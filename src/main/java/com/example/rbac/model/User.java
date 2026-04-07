@@ -26,6 +26,7 @@ public class User {
     @Column(nullable = false)
     private Instant createdAt;
 
+    @Builder.Default
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),

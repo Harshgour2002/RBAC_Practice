@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.HashSet;
 
 @Service
 public class AuthService {
@@ -53,7 +54,7 @@ public class AuthService {
         Role defaultRole = roleRepository.findByName("ROLE_USER")
                 .orElseGet(() -> roleRepository.save(Role.builder().name("ROLE_USER").build()));
         User user = User.builder().email(req.email()).passwordHash(passwordEncoder.encode(req.password()))
-                .createdAt(Instant.now()).enabled(true).build();
+                .createdAt(Instant.now()).enabled(true).roles(new HashSet<>()).build();
         user.getRoles().add(defaultRole);
         userRepository.save(user);
     }
