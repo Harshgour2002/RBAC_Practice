@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rbac-service
+spec:
+  selector:
+    app: rbac-service
+  ports:
+    - port: 80
+      targetPort: 8080
