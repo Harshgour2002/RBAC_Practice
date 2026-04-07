@@ -24,16 +24,20 @@ Client -> API Layer -> Authentication Module -> Authorization Engine
 - `exception`: centralized exception mapping
 
 ## Setup
-1. Start infra:
+1. Start infra (host ports are remapped to avoid common local conflicts):
    ```bash
    docker-compose up -d
    ```
 2. Run service:
    ```bash
+   SPRING_DATASOURCE_URL=jdbc:mysql://localhost:13306/rbac \
+   SPRING_DATA_REDIS_HOST=localhost SPRING_DATA_REDIS_PORT=16379 \
+   SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:19092 \
    ./mvnw spring-boot:run
    ```
 3. OpenAPI docs: `http://localhost:8080/swagger-ui/index.html`
 4. Prometheus metrics: `http://localhost:8080/actuator/prometheus`
+5. Observability UIs from compose: Prometheus `http://localhost:19090`, Grafana `http://localhost:13000`
 
 ## API Endpoints
 ### Authentication
