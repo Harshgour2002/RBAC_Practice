@@ -1,0 +1,11 @@
+{
+  "title": "RBAC Security Overview",
+  "panels": [
+    {"title": "RPS", "type": "timeseries"},
+    {"title": "Auth Latency", "type": "timeseries"},
+    {"title": "Login Failures", "type": "timeseries"},
+    {"title": "Error Rate", "type": "timeseries"}
+  ],
+  "schemaVersion": 38,
+  "version": 1
+}
