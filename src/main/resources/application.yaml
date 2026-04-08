@@ -2,7 +2,7 @@ spring:
   application:
     name: rbac-service
   datasource:
-    url: jdbc:mysql://localhost:3306/rbac
+    url: jdbc:mysql://localhost:13306/rbac
     username: rbac
     password: rbac
     hikari:
@@ -22,7 +22,7 @@ spring:
       host: localhost
       port: 6379
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:19092
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
